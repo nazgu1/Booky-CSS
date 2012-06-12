@@ -1,0 +1,125 @@
+/*
+ * book.css
+ * 
+ * CSS of Booky - framework for printed media
+ * 
+ * Author: Dawid Dziurdzia – 2012
+ */
+
+@page {
+  size: 21cm 29.1cm;
+  margin: 2cm;
+  orphans:2;
+  widows: 5;
+}
+
+@page :first{
+  margin-top: 10cm;
+  @bottom-right {
+    content: none;
+  }
+}
+@page :left{
+  margin-left: 30mm;
+  @bottom-right {
+    content: counter(page);
+  }
+}
+@page :right{
+  margin-right: 30mm;
+  @bottom-left {
+    content: counter(page);
+  }
+}
+
+h1 {
+ page-break-before : always;
+}
+div>h1:first-of-type{
+  page-break-before : avoid;
+}
+h1,h2,h3,h4,h5,h6 {
+  page-break-after : avoid;
+  margin-top: 1.5em;
+}
+
+body{
+  font-family:Palatino, Georgia, "Times New Roman", Times, serif;
+  font-size: 14pt;
+  color : #000000;
+  background : #ffffff;
+  text-align:justify;
+}
+
+div.blank{
+  page-break-after : always;
+}
+
+div.title{
+  page-break-after : always;
+  text-align:center;
+}
+
+div.title h1{
+  font-size:50pt;
+}
+div.title .author{
+  text-align:right;
+  font-style:italic;
+  font-size: 30pt;
+}
+
+
+a {
+  text-decoration : underline;
+  color : #0000ff;
+}
+
+img {
+    image-resolution: from-image;
+}
+
+p{
+  margin:1em 0 2em 0;
+}
+
+
+/* columns */
+.column-span{
+  column-span:all;
+}
+.columns{
+  column-gap: 2em;
+}
+.wide.columns{
+  column-gap: 4em;
+}
+.medium.columns{
+  column-gap: 2em;
+}
+.narrow.columns{
+  column-gap: 1em;
+}
+.divided.columns{
+  column-rule:solid 1pt #000;
+}
+.two.columns{
+  column-count: 2;
+}
+.three.columns{
+  column-count: 3;
+}
+.four.columns{
+  column-count: 4;
+}
+.five.columns{
+  column-count: 5;
+}
+.six.columns{
+  column-count: 6;
+}
+
+/* effects */
+.shadow {
+  
+}

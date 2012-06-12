@@ -1,0 +1,61 @@
+<!--
+  -- book.html --
+  --
+  -- HTML markup of Booky - framework for printed media --
+  -- Author: Dawid Dziurdzia – 2012 --
+  --
+  -->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Some page title</title>
+  <meta name="description" content="Some page title">
+  <meta name="author" content="Gall Anonim">
+
+  <link rel="stylesheet" type="text/css" href="book.css" />
+
+  <script src="Hyphenator.js"></script>
+  <script>
+    
+    Hyphenator.run();
+    </script>
+</head>
+
+<body class="">
+    <!-- title page -->
+    <div class="title">
+      <!-- eg. page title -->
+      <h1>Some page title</h1>
+      <!-- author -->
+      <p class="author">— Gall Anonim</p>
+    </div>
+    
+    <div class="blank"><!--blank page--></div>
+    
+    <!-- next pages can be placed in one or more "containers"
+         h1 will allways add page break before
+         other headers will try to be placed without page break
+         class "hyphenate text" + optionally lang="lang_code" (en|pl|fr|it etc.) will add hyphenation to text
+         class "donthyphenate" inside hyphenation block will remove hyphenation from inside block
+         two|three|four|five|six [narrow|medium|wide] [divided] columns - split text into n columns with divider and narrow/medium/wide gaps beetwen columns.
+         column-span spans element with this class among columns.
+      -->
+    <div class="hyphenate text">
+    <h1>Book</h1>
+    <h2>Building a book</h2>
+    The new CSS3 features come from the Paged Media Module and the Generated Content for Paged Media Module (GCPM). I used the latest working draft and the latest editor’s draft of the Paged Media Module to develop my stylesheets. The spec is fairly stable and has entered the last call period (meaning the working group feels pretty good about it and is looking for final review before they recommend advancement). They’re still editing and it’s likely that they’ll release another Last Call Working Draft to finalize changes made during this review period.
+    <h1>Book2</h1>
+    The first step when working with print documents is to set up your page structure using the @page element. This is akin to master pages in print layout, through which you can set the trim size (i.e., page dimensions), borders, running headers and footers, fonts, and so on—basically anything that you want to appear on every page. And of course, you can still use cascades. For example:
+    <h1>Lolek</h1>
+    <h2>Paragrafik aa</h2>
+    <div lang="pl" class="donthyphenate two wide divided columns">
+      <h3 class="column-span">Stanisław Marusarz zajął w kombinacji siódme miejsce</h3><p>ex aequo z fińskim zawodnikiem Timo Muramą, z notą 393,3 punktu[15]. W konkursie skoków był 5.[25], po skokach na 73 m i 75,5 m. Łączna nota wyniosła 221,6 pkt.[26] Były to pierwsze punkty olimpijskie zdobyte przez Polaka na zimowych igrzyskach. Następne uzyskał Franciszek Gąsienica Groń w 1956 r.[26] Marusarz w 1936 wywalczył jeszcze kolejny tytuł mistrza Polski w skokach, w kombinacji klasycznej i w sztafecie 4 razy 10 km[5], a w Plebiscycie Przeglądu Sportowego zajął 7. miejsce, otrzymując od czytelników 14 274 głosów[27].</p></div>
+<p lang="pl">W 1937 został mistrzem Anglii w biegu. Na mistrzostwach świata w Chamonix sklasyfikowany został na 12. lokacie w konkursie skoków. Wywalczył ponadto kolejny tytuł mistrza Polski w skokach.</p>
+<p lang="pl" class="three columns">Na Mistrzostwach Świata 1938 w Lahti zdobył srebrny medal. Do zawodów przygotowywał się we Lwowie, gdzie pracował w sklepie sportowym Scott i Pawłowski[26]. Potem, w Zakopanem, wygrał eliminacje do mistrzostw. Do Finlandii pojechało pięciu polskich narciarzy, a ich kapitanem sportowym był dr Henryk Szatkowski. Marusarz na treningach oddawał dalekie skoki. W skokach do kombinacji klasycznej, w pierwszym skoku, osiągnął wysoką lokatę, lecz w drugiej serii upadł[29]. W biegu na 18 km do kombinacji uplasował się na dalekiej pozycji i po zsumowaniu punktacji za skok i bieg zajął w klasyfikacji 21. miejsce[29]. W konkursie skoków lądował na 66 m i 67 m, dwukrotnie bijąc rekord obiektu. Sędziowie zaczęli toczyć spory o długość jego drugiego skoku. Fiński arbiter uważał, że Polak osiągnął 67,5 m, sędzia norweski, sprzyjający swemu rodakowi Asbjørnowi Ruudowi, nie chciał się z tym zgodzić i ostatecznie ogłoszono, że Marusarz skoczył 67 m. Mistrzem świata został Ruud, o 0,3 pkt. przez Marusarzem</p>
+    </div>
+</body>
+</html>
