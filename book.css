@@ -32,23 +32,41 @@
   }
 }
 
-h1 {
- page-break-before : always;
+* {
+  line-height: 100%;
 }
-div>h1:first-of-type{
-  page-break-before : avoid;
-}
-h1,h2,h3,h4,h5,h6 {
-  page-break-after : avoid;
-  margin-top: 1.5em;
-}
-
 body{
   font-family:Palatino, Georgia, "Times New Roman", Times, serif;
   font-size: 14pt;
   color : #000000;
   background : #ffffff;
   text-align:justify;
+  /* counters */
+  counter-reset: figures;
+  counter-reset: tables;
+}
+body a {
+  color: #222;
+  text-decoration : underline;
+}
+body p {
+    line-height: 1.6rem;
+    margin:.5em 0 1em 0;
+}
+body img {
+    image-resolution: from-image;
+}
+
+h1 {
+ page-break-before : always;
+}
+
+div>h1:first-of-type{
+  page-break-before : avoid;
+}
+h1,h2,h3,h4,h5,h6 {
+  page-break-after : avoid;
+  margin-top: 1em;
 }
 
 div.blank{
@@ -68,21 +86,6 @@ div.title .author{
   font-style:italic;
   font-size: 30pt;
 }
-
-
-a {
-  text-decoration : underline;
-  color : #0000ff;
-}
-
-img {
-    image-resolution: from-image;
-}
-
-p{
-  margin:1em 0 2em 0;
-}
-
 
 /* columns */
 .column-span{
@@ -119,7 +122,77 @@ p{
   column-count: 6;
 }
 
+/* tables */
+table {
+  border-collapse: collapse;
+}
+table, td {
+  border: 1px solid #a1a1a1;
+}
+th {
+  background: #ddd;
+  color: black;
+  border: 1px solid #444;
+}
+th, td {
+  padding: 10px;
+  page-break-before: avoid;
+  page-break-after: avoid;
+}
+
+/* code */
+pre>code {
+  display: block;
+  background: transparent;
+  border-left:4px solid #ccc;
+  color: black;
+  width: 65%;
+  font-family: Monaco,Courier,monospaced;
+  font-size: 14px;
+  padding: 10px;
+  page-break-before: avoid;
+  page-break-after: avoid;
+}
+
 /* effects */
 .shadow {
-  
+  /*text-shadow: .07em .07em rgba(0,0,0,.5);*/
+}
+
+/* captions */
+figcaption {
+  counter-increment: figures;
+  page-break-before: avoid;
+}
+figcaption::before {
+  content: "Rys. : ";
+  content: "Rys. " counters(figures, "") ": ";
+  font-style: italic;
+  page-break-before: avoid;
+  page-break-after: avoid;
+}
+figure *:first-child {
+  margin: 0 auto;
+  text-align: left;
+  page-break-before: avoid;
+  page-break-after: avoid;
+}
+figure>img {
+  display: block;
+  padding: 2px;
+  border: 1px solid #a1a1a1;
+}
+figure {
+  text-align: center;
+  padding: 1em 0 0.5em 0;
+  page-break-after: avoid;
+}
+figcaption {
+  font-style:italic;
+  background: #eee;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-top: 10px;
+  display: inline-block;
+  font-size: smaller;
 }
