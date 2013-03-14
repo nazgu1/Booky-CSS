@@ -1,0 +1,4 @@
+figcaption::before {
+  content: "Rys. : ";
+  content: "Rys. " counters(figures, "") ": ";
+}
