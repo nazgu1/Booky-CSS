@@ -1,0 +1,3 @@
+[submodule "hyphenator"]
+	path = hyphenator
+	url = git://github.com/eFrane/hyphenator.git
