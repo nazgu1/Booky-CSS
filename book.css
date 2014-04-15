@@ -1,18 +1,20 @@
 /*
  * book.css
- * 
+ *
  * CSS of Booky - framework for printed media
- * 
+ *
  * Author: Dawid Dziurdzia – 2012
  */
- 
+
+@charset "UTF-8";
+
 html {
   height: 100%;
-  overflow: -o-paged-x;
+
 }
 
 @page {
-     size : 210mm 291mm; //A4
+     size : A4 portrait; /* A4 */
    margin : 25.4mm;
   orphans : 2;
    widows : 3;
@@ -26,14 +28,16 @@ html {
   }
 }
 @page :left{
+  margin : 25.4mm;
   margin-right: 34mm;
-  @bottom-left {
+  @top-left {
     content: counter(page);
   }
 }
 @page :right{
+  margin : 25.4mm;
   margin-left: 34mm;
-  @bottom-right {
+  @top-right {
     content: counter(page);
   }
 }
@@ -41,6 +45,7 @@ html {
 * {
   line-height: 100%;
 }
+
 body{
   font-family:Palatino, Georgia, "Times New Roman", Times, serif;
   font-size: 14pt;
@@ -50,14 +55,21 @@ body{
   /* counters */
   counter-reset: figures;
   counter-reset: tables;
+  counter-reset: codes;
+  hyphens: auto
 }
+
+.donthyphenate {
+  hyphens: manual;
+}
+
 body a {
   color: #222;
   text-decoration : underline;
 }
 body p {
     line-height: 1.6rem;
-    margin:.5em 0 1em 0;
+    margin:.5em 0 .5em 0;
 }
 body img {
     image-resolution: from-image;
@@ -73,10 +85,12 @@ div>h1:first-of-type{
 h1,h2,h3,h4,h5,h6 {
   page-break-after : avoid;
   margin-top: 1em;
+  margin-bottom:.2em;
 }
 
 div.blank{
   page-break-after : always;
+  page-break-before : always;
 }
 
 div.title{
@@ -111,6 +125,7 @@ div.title .author{
 }
 .divided.columns{
   column-rule:solid 1pt #000;
+  column-rule:solid 1pt device-cmyk(0,0,0,0.1);
 }
 .two.columns{
   column-count: 2;
@@ -133,15 +148,15 @@ table {
   border-collapse: collapse;
 }
 table, td {
-  border: 1px solid #a1a1a1;
+  border: 1pt solid #a1a1a1;
 }
 th {
   background: #ddd;
   color: black;
-  border: 1px solid #444;
+  border: 1pt solid #444;
 }
 th, td {
-  padding: 10px;
+  padding: 10pt;
   page-break-before: avoid;
   page-break-after: avoid;
 }
@@ -150,7 +165,10 @@ th, td {
 pre>code {
   display: block;
   background: transparent;
-  border-left:4px solid #ccc;
+  background: device-cmyk(0, 0, 0, 0);
+  border: solid RGBA(0, 0, 0, 0.1);
+  border: solid device-cmyk(0, 0, 0, 0.1);
+  border-width:1pt 1pt 1pt 4pt;
   color: black;
   width: 65%;
   font-family: Monaco,Courier,monospaced;
@@ -160,44 +178,56 @@ pre>code {
   page-break-after: avoid;
 }
 
-/* effects */
-.shadow {
-  /*text-shadow: .07em .07em rgba(0,0,0,.5);*/
+/* figures */
+figure {
+  text-align: center;
+  padding: 1em 0 0.5em 0;
+  page-break-before: avoid;
+  counter-increment: figures;
 }
 
-/* captions */
+figure.table{
+  counter-increment: tables;
+}
+figure.code{
+  counter-increment: codes;
+}
+
 figcaption {
-  counter-increment: figures;
+  font-style:italic;
+  padding: 5pt;
+  margin-top: 8pt;
+  display: inline-block;
+  font-size: smaller;
   page-break-before: avoid;
 }
+
 figcaption::before {
   content: "Fig. : ";
   content: "Fig. " counters(figures, "") ": ";
   font-style: italic;
   page-break-before: avoid;
-  page-break-after: avoid;
 }
+figure.table figcaption::before {
+  content: "Tab. : ";
+  content: "Tab. " counters(tables, "") ": ";
+  font-style: italic;
+  page-break-before: avoid;
+}
+figure.code figcaption::before {
+  content: "Code: ";
+  content: "Code " counters(codes, "") ": ";
+  font-style: italic;
+  page-break-before: avoid;
+}
+
 figure *:first-child {
   margin: 0 auto;
   text-align: left;
   page-break-before: avoid;
-  page-break-after: avoid;
 }
 figure>img {
   display: block;
-  padding: 2px;
-  border: 1px solid #a1a1a1;
-}
-figure {
-  text-align: center;
-  padding: 1em 0 0.5em 0;
-  page-break-after: avoid;
-}
-figcaption {
-  font-style:italic;
-  padding: 5px 10px;
-  border-radius: 3px;
-  margin-top: 10px;
-  display: inline-block;
-  font-size: smaller;
+  padding: 2pt;
+  border: 1pt solid #a1a1a1;
 }
