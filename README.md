@@ -18,9 +18,8 @@ The better way to render it is to use Prince. You can download it from [http://w
 1. Configuration options.
 2. Create some script to generate booklets.
 3. Better spacing between paragraphs.
-4. Add sample usage of *html-to-pdf* generators.
-5. Better internationalization.
-6. …
+4. Better internationalization.
+5. …
 
 ## Contribution
 Just fork this repository, create changes on **another** branch and push them, create pull request.
