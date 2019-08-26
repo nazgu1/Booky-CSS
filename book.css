@@ -8,59 +8,67 @@
 
 @charset "UTF-8";
 
-html {
-  height: 100%;
-
-}
-
 @page {
      size : A4 portrait; /* A4 */
-   margin : 25.4mm;
+   margin : 15.4mm;
   orphans : 2;
    widows : 3;
 }
 
 @page :first{
-  margin : 25.4mm;
+  margin : 15.4mm;
   margin-top: 100mm;
   @bottom-right {
     content: none;
   }
 }
 @page :left{
-  margin : 25.4mm;
-  margin-right: 34mm;
+  margin : 15.4mm;
+  margin-right: 24mm;
   @top-left {
     content: counter(page);
   }
 }
 @page :right{
-  margin : 25.4mm;
-  margin-left: 34mm;
+  margin : 15.4mm;
+  margin-left: 24mm;
   @top-right {
     content: counter(page);
   }
 }
 
-* {
-  line-height: 100%;
+html {
+  line-height: 1.1;
+  -webkit-text-size-adjust: 100%;
 }
 
 body{
-  font-family:Palatino, Georgia, "Times New Roman", Times, serif;
+  margin: 0;
+  font-family: Palatino, Georgia, "Times New Roman", Times, serif;
   font-size: 14pt;
   color : #000000;
-  background : #ffffff;
+  background : #f0f0f0;
   text-align:justify;
   /* counters */
   counter-reset: figures;
   counter-reset: tables;
   counter-reset: codes;
-  hyphens: auto
+  hyphens: auto;
 }
 
-.donthyphenate {
+.dont-hyphenate {
   hyphens: manual;
+}
+
+.dont-print {
+  display: none;
+}
+
+.page-break-before {
+  page-break-before : always;
+}
+.page-break-after {
+  page-break-before : always;
 }
 
 body a {
@@ -171,7 +179,7 @@ pre>code {
   border-width:1pt 1pt 1pt 4pt;
   color: black;
   width: 65%;
-  font-family: Monaco,Courier,monospaced;
+  font-family: Monaco, Courier, monospaced;
   font-size: 14px;
   padding: 10px;
   page-break-before: avoid;
@@ -200,6 +208,8 @@ figcaption {
   display: inline-block;
   font-size: smaller;
   page-break-before: avoid;
+  page-break-inside: auto;
+  page-break-after: auto;
 }
 
 figcaption::before {
